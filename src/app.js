@@ -14,10 +14,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+
+app.use("/producto", ProductRouter);
 app.use("", (req, res) => {
   res.send("Ruta principal");
 });
-app.use("/producto", ProductRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
